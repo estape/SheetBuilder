@@ -597,7 +597,7 @@ class View {
       this.executeBtn.disabled = true;
       this.btnExecIcon.innerHTML = `<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-dasharray="32" stroke-dashoffset="16" fill="none"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/></circle>`;
       this.btnExecText.textContent = "Gerando Planilha...";
-      this.execStatusBadge.className = "status-badge";
+      this.execStatusBadge.className = "m3-badge";
       this.execStatusBadge.textContent = "Processando Modelo...";
       this.execStatusBadge.classList.remove("hidden");
       this.terminalPulse.classList.remove("hidden");
@@ -646,7 +646,7 @@ class View {
     if (sheetData.sheetNames && sheetData.sheetNames.length > 1) {
       sheetData.sheetNames.forEach(sName => {
         const chip = document.createElement("button");
-        chip.className = `sheet-tab-chip ${sName === sheetData.sheetName ? "active" : ""}`;
+        chip.className = `md3-filter-chip ${sName === sheetData.sheetName ? "active" : ""}`;
         chip.textContent = sName;
         chip.addEventListener("click", () => {
           if (onSwitchSheet) onSwitchSheet(sName);
@@ -717,7 +717,7 @@ class View {
   showToast(message, isError = false) {
     if (this.toastTimeout) clearTimeout(this.toastTimeout);
     this.toastMessage.textContent = message;
-    this.toast.style.borderColor = isError ? "var(--danger)" : "var(--brand-excel)";
+    this.toast.style.borderLeft = isError ? "4px solid var(--md-sys-color-error)" : "4px solid var(--md-sys-color-secondary)";
     this.toast.classList.remove("hidden");
 
     this.toastTimeout = setTimeout(() => {

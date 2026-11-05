@@ -1,912 +1,220 @@
 /* ==========================================================================
-   SheetBuilder: Sober Executive Skeuomorphic Stylesheet (pt-BR)
-   Materiais Físicos Nobres: Aço Escovado Mate, Titânio, Alumínio Natural,
-   Couro Legítimo, Botões 3D Extrudados e Livro-Razão Contábil Marfim.
-   SUPORTE COMPLETO A MODO CLARO & ESCURO / ZERO GLOW / SÓBRIO & EXECUTIVO
+   SheetBuilder: Material Design 3 (M3) Official Stylesheet
+   Executive Financial Analytics & Excel Automation
+   https://m3.material.io/
    ========================================================================== */
 
-/* 1. Definições de Variáveis Físicas & Materiais */
-
-/* Tema Escuro: Titânio & Grafite Usinado (Padrão) */
+/* 1. Tokens de Design M3 (Typography, Shapes, Elevation & Color Roles) */
 :root {
-  color-scheme: dark light;
+  /* Tipografia do Sistema */
+  --md-sys-typescale-font-plain: 'Roboto', 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-font-mono: 'Cascadia Code', 'Consolas', 'Fira Code', monospace;
 
-  /* Chassi e Estrutura Externa */
-  --chassis-bg-top: #242831;
-  --chassis-bg-mid: #1d2027;
-  --chassis-bg-bot: #15181e;
-  --chassis-grain-light: rgba(255, 255, 255, 0.015);
-  --chassis-grain-dark: rgba(0, 0, 0, 0.03);
-  --chassis-border: #0e1014;
-  --chassis-highlight: rgba(255, 255, 255, 0.12);
-  --chassis-shadow: rgba(0, 0, 0, 0.85);
+  /* Escala de Formas (Corner Radii) */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-xs: 4px;
+  --md-sys-shape-corner-sm: 8px;
+  --md-sys-shape-corner-md: 12px;
+  --md-sys-shape-corner-lg: 16px;
+  --md-sys-shape-corner-full: 9999px;
 
-  /* Cabeçalho do Console */
-  --header-bg-top: #2b3039;
-  --header-bg-bot: #20242b;
-  --header-border: #101216;
-  --header-highlight: rgba(255, 255, 255, 0.15);
-  --header-shadow: rgba(0, 0, 0, 0.6);
-  --brand-title-color: #f1f5f9;
-  --brand-subtitle-color: #9aa4b2;
-  --brand-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9);
+  /* Elevação Tonal e Sombras Difusas M3 */
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+  --md-sys-elevation-level2: 0px 2px 6px 2px rgba(0, 0, 0, 0.16), 0px 1px 2px 0px rgba(0, 0, 0, 0.28);
+  --md-sys-elevation-level3: 0px 4px 8px 3px rgba(0, 0, 0, 0.18), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+  --md-sys-elevation-level4: 0px 6px 10px 4px rgba(0, 0, 0, 0.20), 0px 2px 3px 0px rgba(0, 0, 0, 0.32);
 
-  /* Painéis de Instrumentação */
-  --panel-bg-top: #22262e;
-  --panel-bg-bot: #191c22;
-  --panel-border: #101216;
-  --panel-highlight: rgba(255, 255, 255, 0.1);
-  --panel-shadow: rgba(0, 0, 0, 0.6);
-
-  --panel-header-bg-top: #282d36;
-  --panel-header-bg-bot: #1f232a;
-  --panel-header-border: #111317;
-  --panel-header-highlight: rgba(255, 255, 255, 0.08);
-  --panel-header-title: #e2e8f0;
-  --panel-header-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
-
-  --panel-bottom-bg-top: #242932;
-  --panel-bottom-bg-bot: #1a1d23;
-  --panel-bottom-border: #111317;
-
-  /* Tipografia do Console */
-  --text-primary: #e6ebf2;
-  --text-secondary: #9aa4b2;
-  --text-muted: #647082;
-
-  /* Parafusos Chanfrados de Precisão */
-  --screw-head-grad: radial-gradient(circle at 45% 40%, #687282 0%, #3e4450 60%, #1a1d24 95%);
-  --screw-bezel: #0e1014;
-  --screw-highlight: rgba(255, 255, 255, 0.3);
-  --screw-shadow: rgba(0, 0, 0, 0.7);
-  --screw-slit: #0f1115;
-  --screw-slit-hl: rgba(255, 255, 255, 0.18);
-
-  /* Banner de Etapas */
-  --guide-bg: #14161b;
-  --guide-border: #0e1013;
-  --guide-text: #9aa4b2;
-  --guide-arrow: #404856;
-  --guide-step-bg-top: #2f537e;
-  --guide-step-bg-bot: #1c3656;
-  --guide-step-border: #122438;
-  --guide-step-text: #f1f5f9;
-
-  /* Display Rebaixado: Editor de Código */
-  --sunken-screen-bg: #090b0e;
-  --sunken-border: #0d0f12;
-  --sunken-shadow: inset 0 8px 16px -2px rgba(0, 0, 0, 0.95), inset 4px 0 8px -2px rgba(0, 0, 0, 0.8), inset -4px 0 8px -2px rgba(0, 0, 0, 0.8);
-  --editor-gutter-bg: #0b0d10;
-  --editor-gutter-border: #161a22;
-  --editor-gutter-text: #4b5565;
-  --editor-text: #d8e2ed;
-  --editor-placeholder: #4b5565;
-
-  /* Controles em Relevo (Dropdown & Accordion) */
-  --dropdown-bg-top: #242932;
-  --dropdown-bg-bot: #181b22;
-  --dropdown-border: #111317;
-  --dropdown-border-top: #3b4250;
-  --dropdown-text: #e2e8f0;
-
-  --accordion-bg: #171a20;
-  --accordion-border: #0e1014;
-  --accordion-inner-bg: #121418;
-  --accordion-inner-border: #0d0f12;
-  --input-field-bg: #090b0e;
-  --input-field-border: #0d0f12;
-  --input-field-text: #e2e8f0;
-
-  /* Botão Sóbrio Neutro Extrudado 3D */
-  --btn-neutral-top: #373e4b;
-  --btn-neutral-mid1: #292f39;
-  --btn-neutral-mid2: #21262f;
-  --btn-neutral-bot: #1a1e25;
-  --btn-neutral-border: #14171d;
-  --btn-neutral-border-top: #485263;
-  --btn-neutral-highlight: rgba(255, 255, 255, 0.35);
-  --btn-neutral-text: #f1f5f9;
-  --btn-neutral-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9);
-  --btn-neutral-layer1: #121419;
-  --btn-neutral-layer2: #0f1115;
-  --btn-neutral-layer3: #0c0e11;
-  --btn-neutral-layer4: #090a0d;
-  --btn-neutral-layer5: #060709;
-  --btn-neutral-shadow: rgba(0, 0, 0, 0.6);
-  --btn-pressed-inset: rgba(0, 0, 0, 0.85);
-  --btn-pressed-layer: #060709;
-  --btn-pressed-shadow: rgba(0, 0, 0, 0.7);
-
-  /* Botão Primário: Azul Marinho Corporativo */
-  --btn-primary-top: #244b78;
-  --btn-primary-mid1: #1a385c;
-  --btn-primary-mid2: #142d4a;
-  --btn-primary-bot: #10243c;
-  --btn-primary-border: #091a2e;
-  --btn-primary-border-top: #3b6b9e;
-  --btn-primary-highlight: rgba(255, 255, 255, 0.4);
-  --btn-primary-layer1: #0d1e32;
-  --btn-primary-layer2: #0a1827;
-  --btn-primary-layer3: #08131f;
-  --btn-primary-layer4: #060e18;
-  --btn-primary-layer5: #040910;
-  --btn-primary-shadow: rgba(0, 0, 0, 0.6);
-
-  /* Botão Sucesso: Verde Floresta Bancário */
-  --btn-success-top: #1f5f38;
-  --btn-success-mid1: #174a2b;
-  --btn-success-mid2: #123c23;
-  --btn-success-bot: #0e301c;
-  --btn-success-border: #06190e;
-  --btn-success-border-top: #388a56;
-  --btn-success-highlight: rgba(255, 255, 255, 0.35);
-  --btn-success-layer1: #0b2315;
-  --btn-success-layer2: #081b10;
-  --btn-success-layer3: #06150d;
-  --btn-success-layer4: #040e08;
-  --btn-success-layer5: #020805;
-  --btn-success-shadow: rgba(0, 0, 0, 0.6);
-
-  /* Abas do Painel */
-  --tab-btn-text: #9aa4b2;
-  --tab-btn-active-text: #f1f5f9;
-  --tab-btn-active-line: #3b6b9e;
-  --count-pill-bg: #1e3a5f;
-  --count-pill-border: #10243c;
-  --count-pill-text: #dbeafe;
-
-  /* Lombada de Couro & Cabeçalho da Planilha */
-  --leather-spine-top: #2c1a11;
-  --leather-spine-mid: #1e120c;
-  --leather-spine-bot: #130b07;
-  --leather-border: #0a0604;
-  --gold-text-grad: linear-gradient(135deg, #c49938 0%, #edd898 30%, #9e7520 60%, #deb85b 100%);
-  --badge-bg: #111317;
-  --badge-border: #08090b;
-  --badge-text: #cbd5e1;
-  --tab-chip-border: #3d2a1e;
-  --tab-chip-bg: #1c110b;
-  --tab-chip-text: #dfd5c6;
-  --tab-chip-active-bg: #4a2f1e;
-  --tab-chip-active-text: #ffffff;
-  --tab-chip-active-border: #8c6239;
-  --filter-bg: #110b07;
-  --filter-border: #111317;
-  --filter-text: #f1f5f9;
-
-  /* Livro-Razão Contábil (Papel Marfim / Eye-Ease) */
-  --ledger-paper-bg: #fbf9f2;
-  --ledger-text: #17212e;
-  --ledger-rule-blue: rgba(72, 107, 145, 0.28);
-  --ledger-rule-red: rgba(185, 45, 45, 0.75);
-  --th-bg: #ede8dc;
-  --th-border-bottom: #5a738e;
-  --th-border-top: #dad4c3;
-  --th-text: #334155;
-  --table-hover-bg: rgba(72, 107, 145, 0.08);
-  --table-total-bg: rgba(237, 232, 220, 0.6);
-  --empty-text: #64748b;
-
-  /* Terminal Diário de Bordo */
-  --terminal-bg: #090b0e;
-  --terminal-text: #cbd5e1;
-  --terminal-err: #f87171;
-  --terminal-succ: #4ade80;
-  --terminal-info: #60a5fa;
-
-  /* Status & LED */
-  --env-badge-bg: #111317;
-  --env-badge-border: #08090b;
-  --env-badge-shadow: rgba(0, 0, 0, 0.9);
-  --env-badge-text: #cbd5e1;
-  --bezel-outer: linear-gradient(135deg, #d8dee8 0%, #858e9c 35%, #2a2e37 50%, #b8c0cc 75%, #434954 100%);
-  --bezel-border: #0b0d10;
-  --bezel-highlight: rgba(255, 255, 255, 0.6);
-  --bezel-drop-shadow: rgba(0, 0, 0, 0.7);
-  --bezel-socket: #0d0f13;
-
-  /* Seletor de Tema */
-  --theme-switch-bg: #121417;
-  --theme-switch-border: #090a0d;
-  --theme-switch-active-bg: linear-gradient(180deg, #373e4a 0%, #262b34 100%);
-  --theme-switch-active-text: #f1f5f9;
-  --theme-switch-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
-
-  /* Toast & Status */
-  --toast-bg: #1c2026;
-  --toast-border: #333a46;
-  --toast-text: #f1f5f9;
-  --toast-shadow: rgba(0, 0, 0, 0.8);
-  --status-badge-bg: #121418;
-  --status-badge-border: #0d0f12;
-  --status-badge-text: #9aa4b2;
-
-  /* Barra de Rolagem */
-  --scroll-thumb: #3e4450;
-  --scroll-track: #15181e;
-
-  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
-  scrollbar-width: thin;
+  /* Transição de Estado M3 */
+  --md-sys-motion-duration-short: 150ms;
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
 /* --------------------------------------------------------------------------
-   Tema Claro: Alumínio Anodizado Natural & Aço Escovado Mate
-   Ativado automaticamente se o SO estiver no Modo Claro (e tema for 'system')
-   ou forçado quando data-theme="light"
+   TEMA ESCURO (Dark Mode) — Default do SheetBuilder
+   -------------------------------------------------------------------------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Papéis Primários (Indigo / Deep Navy Adaptativo) */
+  --md-sys-color-primary: #A8C7FA;
+  --md-sys-color-on-primary: #062E5B;
+  --md-sys-color-primary-container: #1A4780;
+  --md-sys-color-on-primary-container: #D6E4FF;
+  --md-sys-color-primary-rgb: 168, 199, 250;
+
+  /* Papéis Secundários (Verde Excel M3) */
+  --md-sys-color-secondary: #72D995;
+  --md-sys-color-on-secondary: #00391A;
+  --md-sys-color-secondary-container: #0D522C;
+  --md-sys-color-on-secondary-container: #C7EED0;
+  --md-sys-color-secondary-rgb: 114, 217, 149;
+
+  /* Papéis Terciários (Âmbar / Gold Financeiro) */
+  --md-sys-color-tertiary: #FFBA38;
+  --md-sys-color-on-tertiary: #432C00;
+  --md-sys-color-tertiary-container: #624200;
+  --md-sys-color-on-tertiary-container: #FFDEA3;
+
+  /* Papéis de Erro */
+  --md-sys-color-error: #FFB4AB;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000A;
+  --md-sys-color-on-error-container: #FFDAD6;
+
+  /* Superfícies Tonais Neutras */
+  --md-sys-color-surface: #111318;
+  --md-sys-color-surface-dim: #111318;
+  --md-sys-color-surface-bright: #37393E;
+  --md-sys-color-surface-container-lowest: #0C0E13;
+  --md-sys-color-surface-container-low: #191C20;
+  --md-sys-color-surface-container: #1D2024;
+  --md-sys-color-surface-container-high: #272A2F;
+  --md-sys-color-surface-container-highest: #32353A;
+
+  /* Tipografia e Contornos */
+  --md-sys-color-on-surface: #E2E2E6;
+  --md-sys-color-on-surface-variant: #C4C7D0;
+  --md-sys-color-on-surface-rgb: 226, 226, 230;
+  --md-sys-color-outline: #8D9199;
+  --md-sys-color-outline-variant: #43474E;
+
+  /* Inversas (Snackbars / Toasts) */
+  --md-sys-color-inverse-surface: #E2E2E6;
+  --md-sys-color-inverse-on-surface: #2E3033;
+  --md-sys-color-inverse-primary: #1B365D;
+
+  /* Barra de Rolagem */
+  --scroll-thumb: #43474E;
+  --scroll-track: #191C20;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+/* --------------------------------------------------------------------------
+   TEMA CLARO (Light Mode)
+   Ativado automaticamente no Windows 11 em Modo Claro ou via seletor
    -------------------------------------------------------------------------- */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     color-scheme: light;
 
-    /* Chassi e Estrutura Externa (Alumínio Silver Anodizado) */
-    --chassis-bg-top: #eceef2;
-    --chassis-bg-mid: #e0e4ec;
-    --chassis-bg-bot: #d4dae4;
-    --chassis-grain-light: rgba(255, 255, 255, 0.5);
-    --chassis-grain-dark: rgba(0, 0, 0, 0.04);
-    --chassis-border: #bac4d2;
-    --chassis-highlight: rgba(255, 255, 255, 0.95);
-    --chassis-shadow: rgba(30, 40, 60, 0.15);
+    /* Papéis Primários (Indigo Executivo Sólido) */
+    --md-sys-color-primary: #1B365D;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #D6E4FF;
+    --md-sys-color-on-primary-container: #001B3E;
+    --md-sys-color-primary-rgb: 27, 54, 93;
 
-    /* Cabeçalho do Console (Placa de Prata Acetinada) */
-    --header-bg-top: #f6f8fb;
-    --header-bg-bot: #e2e8f1;
-    --header-border: #bcc7d6;
-    --header-highlight: rgba(255, 255, 255, 0.98);
-    --header-shadow: rgba(20, 30, 50, 0.08);
-    --brand-title-color: #0f172a;
-    --brand-subtitle-color: #475569;
-    --brand-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    /* Papéis Secundários (Verde Excel Sólido) */
+    --md-sys-color-secondary: #107C41;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #D4F4DC;
+    --md-sys-color-on-secondary-container: #00210E;
+    --md-sys-color-secondary-rgb: 16, 124, 65;
 
-    /* Painéis de Instrumentação */
-    --panel-bg-top: #f3f6fa;
-    --panel-bg-bot: #e6ecf4;
-    --panel-border: #bcc8d8;
-    --panel-highlight: rgba(255, 255, 255, 0.95);
-    --panel-shadow: rgba(25, 35, 55, 0.12);
+    /* Papéis Terciários (Âmbar Corporativo) */
+    --md-sys-color-tertiary: #7D5700;
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #FFDEA3;
+    --md-sys-color-on-tertiary-container: #2A1800;
 
-    --panel-header-bg-top: #edf2f8;
-    --panel-header-bg-bot: #dfe6f0;
-    --panel-header-border: #b8c5d6;
-    --panel-header-highlight: rgba(255, 255, 255, 0.9);
-    --panel-header-title: #1e293b;
-    --panel-header-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    /* Papéis de Erro */
+    --md-sys-color-error: #BA1A1A;
+    --md-sys-color-on-error: #FFFFFF;
+    --md-sys-color-error-container: #FFDAD6;
+    --md-sys-color-on-error-container: #410002;
 
-    --panel-bottom-bg-top: #edf2f8;
-    --panel-bottom-bg-bot: #dee5ef;
-    --panel-bottom-border: #bcc8d8;
+    /* Superfícies Tonais Neutras */
+    --md-sys-color-surface: #F8F9FD;
+    --md-sys-color-surface-dim: #D9D9E0;
+    --md-sys-color-surface-bright: #FDFBFF;
+    --md-sys-color-surface-container-lowest: #FFFFFF;
+    --md-sys-color-surface-container-low: #F3F3F8;
+    --md-sys-color-surface-container: #EDEAF0;
+    --md-sys-color-surface-container-high: #E7E4EB;
+    --md-sys-color-surface-container-highest: #E1DFE6;
 
-    /* Tipografia do Console */
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    /* Tipografia e Contornos */
+    --md-sys-color-on-surface: #1A1C1E;
+    --md-sys-color-on-surface-variant: #43474E;
+    --md-sys-color-on-surface-rgb: 26, 28, 30;
+    --md-sys-color-outline: #73777F;
+    --md-sys-color-outline-variant: #C4C7D0;
 
-    /* Parafusos de Aço Inox / Cromo Usinado */
-    --screw-head-grad: radial-gradient(circle at 45% 40%, #ffffff 0%, #d8e0ea 50%, #9aa7b8 95%);
-    --screw-bezel: #8f9eae;
-    --screw-highlight: rgba(255, 255, 255, 0.95);
-    --screw-shadow: rgba(0, 0, 0, 0.25);
-    --screw-slit: #475569;
-    --screw-slit-hl: rgba(255, 255, 255, 0.85);
+    /* Inversas (Snackbars / Toasts) */
+    --md-sys-color-inverse-surface: #2E3033;
+    --md-sys-color-inverse-on-surface: #F1F0F4;
+    --md-sys-color-inverse-primary: #A8C7FA;
 
-    /* Banner de Etapas */
-    --guide-bg: #e7edf5;
-    --guide-border: #cbd5e1;
-    --guide-text: #334155;
-    --guide-arrow: #64748b;
-    --guide-step-bg-top: #2563eb;
-    --guide-step-bg-bot: #1d4ed8;
-    --guide-step-border: #1e40af;
-    --guide-step-text: #ffffff;
-
-    /* Display Rebaixado: Editor de Código (Cavidade Clara de Alta Nitidez) */
-    --sunken-screen-bg: #f8fafc;
-    --sunken-border: #cbd5e1;
-    --sunken-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.08), inset 2px 0 5px rgba(0, 0, 0, 0.05), inset -2px 0 5px rgba(0, 0, 0, 0.05);
-    --editor-gutter-bg: #edf2f7;
-    --editor-gutter-border: #cbd5e1;
-    --editor-gutter-text: #64748b;
-    --editor-text: #0f172a;
-    --editor-placeholder: #94a3b8;
-
-    /* Controles em Relevo (Dropdown & Accordion) */
-    --dropdown-bg-top: #ffffff;
-    --dropdown-bg-bot: #eef2f7;
-    --dropdown-border: #cbd5e1;
-    --dropdown-border-top: #e2e8f0;
-    --dropdown-text: #0f172a;
-
-    --accordion-bg: #e8edf5;
-    --accordion-border: #cbd5e1;
-    --accordion-inner-bg: #f1f5f9;
-    --accordion-inner-border: #cbd5e1;
-    --input-field-bg: #ffffff;
-    --input-field-border: #cbd5e1;
-    --input-field-text: #0f172a;
-
-    /* Botão Sóbrio Neutro Extrudado 3D (Branco Acetinado com Relevo Mecânico) */
-    --btn-neutral-top: #ffffff;
-    --btn-neutral-mid1: #f4f7fb;
-    --btn-neutral-mid2: #e6ebf2;
-    --btn-neutral-bot: #d7dfec;
-    --btn-neutral-border: #a3b2c5;
-    --btn-neutral-border-top: #e2e8f0;
-    --btn-neutral-highlight: rgba(255, 255, 255, 0.95);
-    --btn-neutral-text: #1e293b;
-    --btn-neutral-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-    --btn-neutral-layer1: #b8c5d6;
-    --btn-neutral-layer2: #a4b3c7;
-    --btn-neutral-layer3: #91a2b7;
-    --btn-neutral-layer4: #8092a8;
-    --btn-neutral-layer5: #708298;
-    --btn-neutral-shadow: rgba(20, 30, 50, 0.22);
-    --btn-pressed-inset: rgba(0, 0, 0, 0.25);
-    --btn-pressed-layer: #8092a8;
-    --btn-pressed-shadow: rgba(0, 0, 0, 0.2);
-
-    /* Botão Primário: Azul Royal Executivo */
-    --btn-primary-top: #2563eb;
-    --btn-primary-mid1: #1d4ed8;
-    --btn-primary-mid2: #1e40af;
-    --btn-primary-bot: #1e3a8a;
-    --btn-primary-border: #1e3a8a;
-    --btn-primary-border-top: #60a5fa;
-    --btn-primary-highlight: rgba(255, 255, 255, 0.45);
-    --btn-primary-layer1: #1e40af;
-    --btn-primary-layer2: #1e3a8a;
-    --btn-primary-layer3: #172554;
-    --btn-primary-layer4: #0f172a;
-    --btn-primary-layer5: #020617;
-    --btn-primary-shadow: rgba(30, 60, 140, 0.35);
-
-    /* Botão Sucesso: Verde Floresta Bancário Clássico */
-    --btn-success-top: #16a34a;
-    --btn-success-mid1: #15803d;
-    --btn-success-mid2: #14532d;
-    --btn-success-bot: #0d381e;
-    --btn-success-border: #14532d;
-    --btn-success-border-top: #4ade80;
-    --btn-success-highlight: rgba(255, 255, 255, 0.4);
-    --btn-success-layer1: #15803d;
-    --btn-success-layer2: #14532d;
-    --btn-success-layer3: #0d381e;
-    --btn-success-layer4: #082815;
-    --btn-success-layer5: #03140a;
-    --btn-success-shadow: rgba(20, 100, 50, 0.35);
-
-    /* Abas do Painel */
-    --tab-btn-text: #475569;
-    --tab-btn-active-text: #0f172a;
-    --tab-btn-active-line: #1e4e8c;
-    --count-pill-bg: #dbeafe;
-    --count-pill-border: #bfdbfe;
-    --count-pill-text: #1e40af;
-
-    /* Lombada de Couro Executivo Marrom Conhaque */
-    --leather-spine-top: #5c351f;
-    --leather-spine-mid: #482816;
-    --leather-spine-bot: #331b0e;
-    --leather-border: #241209;
-    --gold-text-grad: linear-gradient(135deg, #f3d489 0%, #ffebad 30%, #c49938 60%, #fae09c 100%);
-    --badge-bg: #e2e8f0;
-    --badge-border: #cbd5e1;
-    --badge-text: #334155;
-    --tab-chip-border: #5a3823;
-    --tab-chip-bg: #351a0d;
-    --tab-chip-text: #f3e5d3;
-    --tab-chip-active-bg: #68381b;
-    --tab-chip-active-text: #ffffff;
-    --tab-chip-active-border: #c49938;
-    --filter-bg: #2b160b;
-    --filter-border: #422312;
-    --filter-text: #fdf8f0;
-
-    /* Livro-Razão Contábil (Marfim / Eye-Ease) */
-    --ledger-paper-bg: #fcfbf7;
-    --ledger-text: #17212e;
-    --ledger-rule-blue: rgba(72, 107, 145, 0.28);
-    --ledger-rule-red: rgba(185, 45, 45, 0.75);
-    --th-bg: #ede8dc;
-    --th-border-bottom: #5a738e;
-    --th-border-top: #dad4c3;
-    --th-text: #334155;
-    --table-hover-bg: rgba(72, 107, 145, 0.08);
-    --table-total-bg: rgba(237, 232, 220, 0.6);
-    --empty-text: #64748b;
-
-    /* Terminal Diário de Bordo (Cavidade Grafite Executiva de Alto Contraste) */
-    --terminal-bg: #0f172a;
-    --terminal-text: #f1f5f9;
-    --terminal-err: #f87171;
-    --terminal-succ: #4ade80;
-    --terminal-info: #60a5fa;
-
-    /* Status & LED */
-    --env-badge-bg: #e4ebf5;
-    --env-badge-border: #b8c5d6;
-    --env-badge-shadow: rgba(0, 0, 0, 0.15);
-    --env-badge-text: #1e293b;
-    --bezel-outer: linear-gradient(135deg, #ffffff 0%, #cbd5e1 35%, #94a3b8 50%, #e2e8f0 75%, #64748b 100%);
-    --bezel-border: #8c9ba9;
-    --bezel-highlight: rgba(255, 255, 255, 0.9);
-    --bezel-drop-shadow: rgba(0, 0, 0, 0.25);
-    --bezel-socket: #cbd5e1;
-
-    /* Seletor de Tema */
-    --theme-switch-bg: #d8e0eb;
-    --theme-switch-border: #b4c2d2;
-    --theme-switch-active-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-    --theme-switch-active-text: #0f172a;
-    --theme-switch-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-    /* Toast & Status */
-    --toast-bg: #ffffff;
-    --toast-border: #cbd5e1;
-    --toast-text: #0f172a;
-    --toast-shadow: rgba(0, 0, 0, 0.15);
-    --status-badge-bg: #e2e8f0;
-    --status-badge-border: #cbd5e1;
-    --status-badge-text: #475569;
+    /* Elevação Ajustada para Modo Claro */
+    --md-sys-elevation-level1: 0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+    --md-sys-elevation-level2: 0px 2px 6px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+    --md-sys-elevation-level3: 0px 4px 8px 1px rgba(0, 0, 0, 0.10), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --md-sys-elevation-level4: 0px 6px 10px 2px rgba(0, 0, 0, 0.12), 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
 
     /* Barra de Rolagem */
-    --scroll-thumb: #94a3b8;
-    --scroll-track: #e2e8f0;
+    --scroll-thumb: #C4C7D0;
+    --scroll-track: #F3F3F8;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
   }
 }
 
-/* Modo Claro Forçado Manualmente via Botão */
 :root[data-theme="light"] {
   color-scheme: light;
 
-  /* Chassi e Estrutura Externa (Alumínio Silver Anodizado) */
-  --chassis-bg-top: #eceef2;
-  --chassis-bg-mid: #e0e4ec;
-  --chassis-bg-bot: #d4dae4;
-  --chassis-grain-light: rgba(255, 255, 255, 0.5);
-  --chassis-grain-dark: rgba(0, 0, 0, 0.04);
-  --chassis-border: #bac4d2;
-  --chassis-highlight: rgba(255, 255, 255, 0.95);
-  --chassis-shadow: rgba(30, 40, 60, 0.15);
+  --md-sys-color-primary: #1B365D;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #D6E4FF;
+  --md-sys-color-on-primary-container: #001B3E;
+  --md-sys-color-primary-rgb: 27, 54, 93;
 
-  /* Cabeçalho do Console (Placa de Prata Acetinada) */
-  --header-bg-top: #f6f8fb;
-  --header-bg-bot: #e2e8f1;
-  --header-border: #bcc7d6;
-  --header-highlight: rgba(255, 255, 255, 0.98);
-  --header-shadow: rgba(20, 30, 50, 0.08);
-  --brand-title-color: #0f172a;
-  --brand-subtitle-color: #475569;
-  --brand-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+  --md-sys-color-secondary: #107C41;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #D4F4DC;
+  --md-sys-color-on-secondary-container: #00210E;
+  --md-sys-color-secondary-rgb: 16, 124, 65;
 
-  /* Painéis de Instrumentação */
-  --panel-bg-top: #f3f6fa;
-  --panel-bg-bot: #e6ecf4;
-  --panel-border: #bcc8d8;
-  --panel-highlight: rgba(255, 255, 255, 0.95);
-  --panel-shadow: rgba(25, 35, 55, 0.12);
+  --md-sys-color-tertiary: #7D5700;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFDEA3;
+  --md-sys-color-on-tertiary-container: #2A1800;
 
-  --panel-header-bg-top: #edf2f8;
-  --panel-header-bg-bot: #dfe6f0;
-  --panel-header-border: #b8c5d6;
-  --panel-header-highlight: rgba(255, 255, 255, 0.9);
-  --panel-header-title: #1e293b;
-  --panel-header-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  --md-sys-color-error: #BA1A1A;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error-container: #410002;
 
-  --panel-bottom-bg-top: #edf2f8;
-  --panel-bottom-bg-bot: #dee5ef;
-  --panel-bottom-border: #bcc8d8;
+  --md-sys-color-surface: #F8F9FD;
+  --md-sys-color-surface-dim: #D9D9E0;
+  --md-sys-color-surface-bright: #FDFBFF;
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F3F3F8;
+  --md-sys-color-surface-container: #EDEAF0;
+  --md-sys-color-surface-container-high: #E7E4EB;
+  --md-sys-color-surface-container-highest: #E1DFE6;
 
-  /* Tipografia do Console */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
+  --md-sys-color-on-surface: #1A1C1E;
+  --md-sys-color-on-surface-variant: #43474E;
+  --md-sys-color-on-surface-rgb: 26, 28, 30;
+  --md-sys-color-outline: #73777F;
+  --md-sys-color-outline-variant: #C4C7D0;
 
-  /* Parafusos de Aço Inox / Cromo Usinado */
-  --screw-head-grad: radial-gradient(circle at 45% 40%, #ffffff 0%, #d8e0ea 50%, #9aa7b8 95%);
-  --screw-bezel: #8f9eae;
-  --screw-highlight: rgba(255, 255, 255, 0.95);
-  --screw-shadow: rgba(0, 0, 0, 0.25);
-  --screw-slit: #475569;
-  --screw-slit-hl: rgba(255, 255, 255, 0.85);
+  --md-sys-color-inverse-surface: #2E3033;
+  --md-sys-color-inverse-on-surface: #F1F0F4;
+  --md-sys-color-inverse-primary: #A8C7FA;
 
-  /* Banner de Etapas */
-  --guide-bg: #e7edf5;
-  --guide-border: #cbd5e1;
-  --guide-text: #334155;
-  --guide-arrow: #64748b;
-  --guide-step-bg-top: #2563eb;
-  --guide-step-bg-bot: #1d4ed8;
-  --guide-step-border: #1e40af;
-  --guide-step-text: #ffffff;
+  --md-sys-elevation-level1: 0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-level2: 0px 2px 6px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-level3: 0px 4px 8px 1px rgba(0, 0, 0, 0.10), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-level4: 0px 6px 10px 2px rgba(0, 0, 0, 0.12), 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
 
-  /* Display Rebaixado: Editor de Código (Cavidade Clara de Alta Nitidez) */
-  --sunken-screen-bg: #f8fafc;
-  --sunken-border: #cbd5e1;
-  --sunken-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.08), inset 2px 0 5px rgba(0, 0, 0, 0.05), inset -2px 0 5px rgba(0, 0, 0, 0.05);
-  --editor-gutter-bg: #edf2f7;
-  --editor-gutter-border: #cbd5e1;
-  --editor-gutter-text: #64748b;
-  --editor-text: #0f172a;
-  --editor-placeholder: #94a3b8;
-
-  /* Controles em Relevo (Dropdown & Accordion) */
-  --dropdown-bg-top: #ffffff;
-  --dropdown-bg-bot: #eef2f7;
-  --dropdown-border: #cbd5e1;
-  --dropdown-border-top: #e2e8f0;
-  --dropdown-text: #0f172a;
-
-  --accordion-bg: #e8edf5;
-  --accordion-border: #cbd5e1;
-  --accordion-inner-bg: #f1f5f9;
-  --accordion-inner-border: #cbd5e1;
-  --input-field-bg: #ffffff;
-  --input-field-border: #cbd5e1;
-  --input-field-text: #0f172a;
-
-  /* Botão Sóbrio Neutro Extrudado 3D (Branco Acetinado com Relevo Mecânico) */
-  --btn-neutral-top: #ffffff;
-  --btn-neutral-mid1: #f4f7fb;
-  --btn-neutral-mid2: #e6ebf2;
-  --btn-neutral-bot: #d7dfec;
-  --btn-neutral-border: #a3b2c5;
-  --btn-neutral-border-top: #e2e8f0;
-  --btn-neutral-highlight: rgba(255, 255, 255, 0.95);
-  --btn-neutral-text: #1e293b;
-  --btn-neutral-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-  --btn-neutral-layer1: #b8c5d6;
-  --btn-neutral-layer2: #a4b3c7;
-  --btn-neutral-layer3: #91a2b7;
-  --btn-neutral-layer4: #8092a8;
-  --btn-neutral-layer5: #708298;
-  --btn-neutral-shadow: rgba(20, 30, 50, 0.22);
-  --btn-pressed-inset: rgba(0, 0, 0, 0.25);
-  --btn-pressed-layer: #8092a8;
-  --btn-pressed-shadow: rgba(0, 0, 0, 0.2);
-
-  /* Botão Primário: Azul Royal Executivo */
-  --btn-primary-top: #2563eb;
-  --btn-primary-mid1: #1d4ed8;
-  --btn-primary-mid2: #1e40af;
-  --btn-primary-bot: #1e3a8a;
-  --btn-primary-border: #1e3a8a;
-  --btn-primary-border-top: #60a5fa;
-  --btn-primary-highlight: rgba(255, 255, 255, 0.45);
-  --btn-primary-layer1: #1e40af;
-  --btn-primary-layer2: #1e3a8a;
-  --btn-primary-layer3: #172554;
-  --btn-primary-layer4: #0f172a;
-  --btn-primary-layer5: #020617;
-  --btn-primary-shadow: rgba(30, 60, 140, 0.35);
-
-  /* Botão Sucesso: Verde Floresta Bancário Clássico */
-  --btn-success-top: #16a34a;
-  --btn-success-mid1: #15803d;
-  --btn-success-mid2: #14532d;
-  --btn-success-bot: #0d381e;
-  --btn-success-border: #14532d;
-  --btn-success-border-top: #4ade80;
-  --btn-success-highlight: rgba(255, 255, 255, 0.4);
-  --btn-success-layer1: #15803d;
-  --btn-success-layer2: #14532d;
-  --btn-success-layer3: #0d381e;
-  --btn-success-layer4: #082815;
-  --btn-success-layer5: #03140a;
-  --btn-success-shadow: rgba(20, 100, 50, 0.35);
-
-  /* Abas do Painel */
-  --tab-btn-text: #475569;
-  --tab-btn-active-text: #0f172a;
-  --tab-btn-active-line: #1e4e8c;
-  --count-pill-bg: #dbeafe;
-  --count-pill-border: #bfdbfe;
-  --count-pill-text: #1e40af;
-
-  /* Lombada de Couro Executivo Marrom Conhaque */
-  --leather-spine-top: #5c351f;
-  --leather-spine-mid: #482816;
-  --leather-spine-bot: #331b0e;
-  --leather-border: #241209;
-  --gold-text-grad: linear-gradient(135deg, #f3d489 0%, #ffebad 30%, #c49938 60%, #fae09c 100%);
-  --badge-bg: #e2e8f0;
-  --badge-border: #cbd5e1;
-  --badge-text: #334155;
-  --tab-chip-border: #5a3823;
-  --tab-chip-bg: #351a0d;
-  --tab-chip-text: #f3e5d3;
-  --tab-chip-active-bg: #68381b;
-  --tab-chip-active-text: #ffffff;
-  --tab-chip-active-border: #c49938;
-  --filter-bg: #2b160b;
-  --filter-border: #422312;
-  --filter-text: #fdf8f0;
-
-  /* Livro-Razão Contábil (Marfim / Eye-Ease) */
-  --ledger-paper-bg: #fcfbf7;
-  --ledger-text: #17212e;
-  --ledger-rule-blue: rgba(72, 107, 145, 0.28);
-  --ledger-rule-red: rgba(185, 45, 45, 0.75);
-  --th-bg: #ede8dc;
-  --th-border-bottom: #5a738e;
-  --th-border-top: #dad4c3;
-  --th-text: #334155;
-  --table-hover-bg: rgba(72, 107, 145, 0.08);
-  --table-total-bg: rgba(237, 232, 220, 0.6);
-  --empty-text: #64748b;
-
-  /* Terminal Diário de Bordo (Cavidade Grafite Executiva de Alto Contraste) */
-  --terminal-bg: #0f172a;
-  --terminal-text: #f1f5f9;
-  --terminal-err: #f87171;
-  --terminal-succ: #4ade80;
-  --terminal-info: #60a5fa;
-
-  /* Status & LED */
-  --env-badge-bg: #e4ebf5;
-  --env-badge-border: #b8c5d6;
-  --env-badge-shadow: rgba(0, 0, 0, 0.15);
-  --env-badge-text: #1e293b;
-  --bezel-outer: linear-gradient(135deg, #ffffff 0%, #cbd5e1 35%, #94a3b8 50%, #e2e8f0 75%, #64748b 100%);
-  --bezel-border: #8c9ba9;
-  --bezel-highlight: rgba(255, 255, 255, 0.9);
-  --bezel-drop-shadow: rgba(0, 0, 0, 0.25);
-  --bezel-socket: #cbd5e1;
-
-  /* Seletor de Tema */
-  --theme-switch-bg: #d8e0eb;
-  --theme-switch-border: #b4c2d2;
-  --theme-switch-active-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-  --theme-switch-active-text: #0f172a;
-  --theme-switch-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-  /* Toast & Status */
-  --toast-bg: #ffffff;
-  --toast-border: #cbd5e1;
-  --toast-text: #0f172a;
-  --toast-shadow: rgba(0, 0, 0, 0.15);
-  --status-badge-bg: #e2e8f0;
-  --status-badge-border: #cbd5e1;
-  --status-badge-text: #475569;
-
-  /* Barra de Rolagem */
-  --scroll-thumb: #94a3b8;
-  --scroll-track: #e2e8f0;
+  --scroll-thumb: #C4C7D0;
+  --scroll-track: #F3F3F8;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
 
-/* Modo Escuro Forçado Manualmente via Botão */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  /* Chassi e Estrutura Externa */
-  --chassis-bg-top: #242831;
-  --chassis-bg-mid: #1d2027;
-  --chassis-bg-bot: #15181e;
-  --chassis-grain-light: rgba(255, 255, 255, 0.015);
-  --chassis-grain-dark: rgba(0, 0, 0, 0.03);
-  --chassis-border: #0e1014;
-  --chassis-highlight: rgba(255, 255, 255, 0.12);
-  --chassis-shadow: rgba(0, 0, 0, 0.85);
-
-  /* Cabeçalho do Console */
-  --header-bg-top: #2b3039;
-  --header-bg-bot: #20242b;
-  --header-border: #101216;
-  --header-highlight: rgba(255, 255, 255, 0.15);
-  --header-shadow: rgba(0, 0, 0, 0.6);
-  --brand-title-color: #f1f5f9;
-  --brand-subtitle-color: #9aa4b2;
-  --brand-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9);
-
-  /* Painéis de Instrumentação */
-  --panel-bg-top: #22262e;
-  --panel-bg-bot: #191c22;
-  --panel-border: #101216;
-  --panel-highlight: rgba(255, 255, 255, 0.1);
-  --panel-shadow: rgba(0, 0, 0, 0.6);
-
-  --panel-header-bg-top: #282d36;
-  --panel-header-bg-bot: #1f232a;
-  --panel-header-border: #111317;
-  --panel-header-highlight: rgba(255, 255, 255, 0.08);
-  --panel-header-title: #e2e8f0;
-  --panel-header-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
-
-  --panel-bottom-bg-top: #242932;
-  --panel-bottom-bg-bot: #1a1d23;
-  --panel-bottom-border: #111317;
-
-  /* Tipografia do Console */
-  --text-primary: #e6ebf2;
-  --text-secondary: #9aa4b2;
-  --text-muted: #647082;
-
-  /* Parafusos Chanfrados de Precisão */
-  --screw-head-grad: radial-gradient(circle at 45% 40%, #687282 0%, #3e4450 60%, #1a1d24 95%);
-  --screw-bezel: #0e1014;
-  --screw-highlight: rgba(255, 255, 255, 0.3);
-  --screw-shadow: rgba(0, 0, 0, 0.7);
-  --screw-slit: #0f1115;
-  --screw-slit-hl: rgba(255, 255, 255, 0.18);
-
-  /* Banner de Etapas */
-  --guide-bg: #14161b;
-  --guide-border: #0e1013;
-  --guide-text: #9aa4b2;
-  --guide-arrow: #404856;
-  --guide-step-bg-top: #2f537e;
-  --guide-step-bg-bot: #1c3656;
-  --guide-step-border: #122438;
-  --guide-step-text: #f1f5f9;
-
-  /* Display Rebaixado: Editor de Código */
-  --sunken-screen-bg: #090b0e;
-  --sunken-border: #0d0f12;
-  --sunken-shadow: inset 0 8px 16px -2px rgba(0, 0, 0, 0.95), inset 4px 0 8px -2px rgba(0, 0, 0, 0.8), inset -4px 0 8px -2px rgba(0, 0, 0, 0.8);
-  --editor-gutter-bg: #0b0d10;
-  --editor-gutter-border: #161a22;
-  --editor-gutter-text: #4b5565;
-  --editor-text: #d8e2ed;
-  --editor-placeholder: #4b5565;
-
-  /* Controles em Relevo (Dropdown & Accordion) */
-  --dropdown-bg-top: #242932;
-  --dropdown-bg-bot: #181b22;
-  --dropdown-border: #111317;
-  --dropdown-border-top: #3b4250;
-  --dropdown-text: #e2e8f0;
-
-  --accordion-bg: #171a20;
-  --accordion-border: #0e1014;
-  --accordion-inner-bg: #121418;
-  --accordion-inner-border: #0d0f12;
-  --input-field-bg: #090b0e;
-  --input-field-border: #0d0f12;
-  --input-field-text: #e2e8f0;
-
-  /* Botão Sóbrio Neutro Extrudado 3D */
-  --btn-neutral-top: #373e4b;
-  --btn-neutral-mid1: #292f39;
-  --btn-neutral-mid2: #21262f;
-  --btn-neutral-bot: #1a1e25;
-  --btn-neutral-border: #14171d;
-  --btn-neutral-border-top: #485263;
-  --btn-neutral-highlight: rgba(255, 255, 255, 0.35);
-  --btn-neutral-text: #f1f5f9;
-  --btn-neutral-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9);
-  --btn-neutral-layer1: #121419;
-  --btn-neutral-layer2: #0f1115;
-  --btn-neutral-layer3: #0c0e11;
-  --btn-neutral-layer4: #090a0d;
-  --btn-neutral-layer5: #060709;
-  --btn-neutral-shadow: rgba(0, 0, 0, 0.6);
-  --btn-pressed-inset: rgba(0, 0, 0, 0.85);
-  --btn-pressed-layer: #060709;
-  --btn-pressed-shadow: rgba(0, 0, 0, 0.7);
-
-  /* Botão Primário: Azul Marinho Corporativo */
-  --btn-primary-top: #244b78;
-  --btn-primary-mid1: #1a385c;
-  --btn-primary-mid2: #142d4a;
-  --btn-primary-bot: #10243c;
-  --btn-primary-border: #091a2e;
-  --btn-primary-border-top: #3b6b9e;
-  --btn-primary-highlight: rgba(255, 255, 255, 0.4);
-  --btn-primary-layer1: #0d1e32;
-  --btn-primary-layer2: #0a1827;
-  --btn-primary-layer3: #08131f;
-  --btn-primary-layer4: #060e18;
-  --btn-primary-layer5: #040910;
-  --btn-primary-shadow: rgba(0, 0, 0, 0.6);
-
-  /* Botão Sucesso: Verde Floresta Bancário */
-  --btn-success-top: #1f5f38;
-  --btn-success-mid1: #174a2b;
-  --btn-success-mid2: #123c23;
-  --btn-success-bot: #0e301c;
-  --btn-success-border: #06190e;
-  --btn-success-border-top: #388a56;
-  --btn-success-highlight: rgba(255, 255, 255, 0.35);
-  --btn-success-layer1: #0b2315;
-  --btn-success-layer2: #081b10;
-  --btn-success-layer3: #06150d;
-  --btn-success-layer4: #040e08;
-  --btn-success-layer5: #020805;
-  --btn-success-shadow: rgba(0, 0, 0, 0.6);
-
-  /* Abas do Painel */
-  --tab-btn-text: #9aa4b2;
-  --tab-btn-active-text: #f1f5f9;
-  --tab-btn-active-line: #3b6b9e;
-  --count-pill-bg: #1e3a5f;
-  --count-pill-border: #10243c;
-  --count-pill-text: #dbeafe;
-
-  /* Lombada de Couro & Cabeçalho da Planilha */
-  --leather-spine-top: #2c1a11;
-  --leather-spine-mid: #1e120c;
-  --leather-spine-bot: #130b07;
-  --leather-border: #0a0604;
-  --gold-text-grad: linear-gradient(135deg, #c49938 0%, #edd898 30%, #9e7520 60%, #deb85b 100%);
-  --badge-bg: #111317;
-  --badge-border: #08090b;
-  --badge-text: #cbd5e1;
-  --tab-chip-border: #3d2a1e;
-  --tab-chip-bg: #1c110b;
-  --tab-chip-text: #dfd5c6;
-  --tab-chip-active-bg: #4a2f1e;
-  --tab-chip-active-text: #ffffff;
-  --tab-chip-active-border: #8c6239;
-  --filter-bg: #110b07;
-  --filter-border: #111317;
-  --filter-text: #f1f5f9;
-
-  /* Livro-Razão Contábil (Papel Marfim / Eye-Ease) */
-  --ledger-paper-bg: #fbf9f2;
-  --ledger-text: #17212e;
-  --ledger-rule-blue: rgba(72, 107, 145, 0.28);
-  --ledger-rule-red: rgba(185, 45, 45, 0.75);
-  --th-bg: #ede8dc;
-  --th-border-bottom: #5a738e;
-  --th-border-top: #dad4c3;
-  --th-text: #334155;
-  --table-hover-bg: rgba(72, 107, 145, 0.08);
-  --table-total-bg: rgba(237, 232, 220, 0.6);
-  --empty-text: #64748b;
-
-  /* Terminal Diário de Bordo */
-  --terminal-bg: #090b0e;
-  --terminal-text: #cbd5e1;
-  --terminal-err: #f87171;
-  --terminal-succ: #4ade80;
-  --terminal-info: #60a5fa;
-
-  /* Status & LED */
-  --env-badge-bg: #111317;
-  --env-badge-border: #08090b;
-  --env-badge-shadow: rgba(0, 0, 0, 0.9);
-  --env-badge-text: #cbd5e1;
-  --bezel-outer: linear-gradient(135deg, #d8dee8 0%, #858e9c 35%, #2a2e37 50%, #b8c0cc 75%, #434954 100%);
-  --bezel-border: #0b0d10;
-  --bezel-highlight: rgba(255, 255, 255, 0.6);
-  --bezel-drop-shadow: rgba(0, 0, 0, 0.7);
-  --bezel-socket: #0d0f13;
-
-  /* Seletor de Tema */
-  --theme-switch-bg: #121417;
-  --theme-switch-border: #090a0d;
-  --theme-switch-active-bg: linear-gradient(180deg, #373e4a 0%, #262b34 100%);
-  --theme-switch-active-text: #f1f5f9;
-  --theme-switch-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
-
-  /* Toast & Status */
-  --toast-bg: #1c2026;
-  --toast-border: #333a46;
-  --toast-text: #f1f5f9;
-  --toast-shadow: rgba(0, 0, 0, 0.8);
-  --status-badge-bg: #121418;
-  --status-badge-border: #0d0f12;
-  --status-badge-text: #9aa4b2;
-
-  /* Barra de Rolagem */
-  --scroll-thumb: #3e4450;
-  --scroll-track: #15181e;
-}
-
-@supports not (scrollbar-color: auto) {
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--scroll-thumb);
-    border-radius: 4px;
-    border: 1px solid var(--chassis-border);
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--scroll-track);
-  }
-}
-
+/* 2. Reset e Configurações Globais */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -917,10 +225,11 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Roboto, sans-serif;
-  background: var(--chassis-bg-bot);
-  color: var(--text-primary);
+  font-family: var(--md-sys-typescale-font-plain);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sr-only {
@@ -934,79 +243,56 @@ html, body {
   border: 0;
 }
 
-/* 2. Chassi do Console Executivo (Aço Escovado Mate / Alumínio Silver) */
+/* 3. Estrutura da Aplicação (App Container) */
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      var(--chassis-grain-light) 0px,
-      var(--chassis-grain-light) 1px,
-      var(--chassis-grain-dark) 1px,
-      var(--chassis-grain-dark) 2px
-    ),
-    linear-gradient(
-      180deg,
-      var(--chassis-bg-top) 0%,
-      var(--chassis-bg-mid) 40%,
-      var(--chassis-bg-bot) 100%
-    );
-  border: 1px solid var(--chassis-border);
-  box-shadow: inset 0 1px 0 var(--chassis-highlight);
+  background-color: var(--md-sys-color-surface);
 }
 
-/* 3. Cabeçalho de Painel de Instrumentação */
+/* 4. Top App Bar (Material Design 3 Small App Bar) */
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px;
-  background: linear-gradient(180deg, var(--header-bg-top) 0%, var(--header-bg-bot) 100%);
-  border-bottom: 2px solid var(--header-border);
-  box-shadow:
-    inset 0 1px 0 var(--header-highlight),
-    0 2px 5px var(--header-shadow);
-  min-height: 58px;
+  padding: 0 24px;
+  min-height: 64px;
+  background-color: var(--md-sys-color-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
   user-select: none;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .brand-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  background: linear-gradient(180deg, #1b3a28 0%, #11261a 100%);
-  border: 1px solid #08140d;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
-    0 2px 4px rgba(0, 0, 0, 0.4);
-  color: #a3e635;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--md-sys-shape-corner-md);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .brand-text h1 {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--brand-title-color);
-  text-shadow: var(--brand-text-shadow);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.2;
 }
 
 .brand-text .subtitle {
-  font-size: 11px;
-  color: var(--brand-subtitle-color);
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 400;
 }
 
 .header-actions {
@@ -1015,196 +301,118 @@ html, body {
   gap: 16px;
 }
 
-/* Lâmpada de LED Joia com Anel Cromado Acetinado */
-.env-badge {
-  display: flex;
+/* Status Chip M3 */
+.m3-status-chip {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 5px 14px 5px 8px;
-  border-radius: 20px;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  background: var(--env-badge-bg);
-  border: 1px solid var(--env-badge-border);
-  box-shadow:
-    inset 0 1px 3px var(--env-badge-shadow),
-    0 1px 0 var(--chassis-highlight);
-  color: var(--env-badge-text);
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-surface-container-high);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
 }
 
-.sober-led-bezel {
-  width: 18px;
-  height: 18px;
+.m3-status-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  padding: 2px;
-  background: var(--bezel-outer);
-  box-shadow: 0 1px 2px var(--bezel-drop-shadow), inset 0 1px 0 var(--bezel-highlight), 0 0 0 1px var(--bezel-border);
-  display: flex;
+  background-color: var(--md-sys-color-outline);
+  transition: background-color var(--md-sys-motion-duration-short) ease;
+}
+
+.m3-status-chip.online .m3-status-dot {
+  background-color: var(--md-sys-color-secondary);
+}
+
+.m3-status-chip.checking .m3-status-dot {
+  background-color: var(--md-sys-color-tertiary);
+}
+
+.m3-status-chip.offline .m3-status-dot {
+  background-color: var(--md-sys-color-error);
+}
+
+/* Seletor de Tema Segmentado M3 (Segmented Button) */
+.m3-segmented-button {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-}
-
-.sober-led-socket {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--bezel-socket);
-  padding: 1px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.sober-led-jewel {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  position: relative;
-  background: radial-gradient(circle at 45% 40%, #64748b 0%, #334155 60%, #1e293b 100%);
-  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.6);
-}
-
-.sober-led-jewel::after {
-  content: '';
-  position: absolute;
-  top: 15%;
-  left: 20%;
-  width: 35%;
-  height: 35%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 80%);
-}
-
-.env-badge.online .sober-led-jewel {
-  background: radial-gradient(circle at 45% 40%, #48bb78 0%, #2f855a 55%, #1c4d34 100%);
-}
-
-.env-badge.checking .sober-led-jewel {
-  background: radial-gradient(circle at 45% 40%, #ecc94b 0%, #d69e2e 55%, #744210 100%);
-}
-
-.env-badge.offline .sober-led-jewel {
-  background: radial-gradient(circle at 45% 40%, #f56565 0%, #c53030 55%, #742a2a 100%);
-}
-
-/* Seletor de Tema Físico */
-.theme-switch {
-  display: flex;
-  background: var(--theme-switch-bg);
-  border: 1px solid var(--theme-switch-border);
-  border-radius: 6px;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-full);
   padding: 2px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px 0 var(--chassis-highlight);
 }
 
 .theme-btn {
   background: transparent;
   border: none;
-  color: var(--text-muted);
-  padding: 5px 8px;
-  border-radius: 4px;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 6px 10px;
+  border-radius: var(--md-sys-shape-corner-full);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.08s ease;
+  transition: all var(--md-sys-motion-duration-short) ease;
 }
 
 .theme-btn:hover {
-  color: var(--text-primary);
+  color: var(--md-sys-color-on-surface);
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.06);
 }
 
 .theme-btn.active {
-  background: var(--theme-switch-active-bg);
-  color: var(--theme-switch-active-text);
-  box-shadow: var(--theme-switch-active-shadow);
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
-/* 4. Grade de Trabalho Principal com Parafusos Chanfrados */
+/* 5. Grade de Trabalho Principal M3 */
 .workspace-grid {
   flex: 1;
   display: grid;
   grid-template-columns: minmax(440px, 1fr) minmax(520px, 1.25fr);
-  gap: 8px;
-  padding: 8px 12px 12px 12px;
+  gap: 16px;
+  padding: 16px 20px 20px 20px;
   overflow: hidden;
 }
 
-/* Painéis de Chassi */
+/* Painéis M3 (Cards de Superfície Tonal) */
 .panel {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, var(--panel-bg-top) 0%, var(--panel-bg-bot) 100%);
-  border: 1px solid var(--panel-border);
-  border-radius: 8px;
-  box-shadow:
-    inset 0 1px 0 var(--panel-highlight),
-    0 4px 10px var(--panel-shadow);
-  position: relative;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-lg);
   overflow: hidden;
   height: 100%;
+  position: relative;
 }
-
-/* Parafuso Usinado Rebaixado de Precisão */
-.sober-screw {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--screw-head-grad);
-  box-shadow:
-    inset 0 1px 1px var(--screw-highlight),
-    0 0 0 1px var(--screw-bezel),
-    0 1px 2px var(--screw-shadow);
-  position: absolute;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.sober-screw::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6.5px;
-  height: 1.5px;
-  background: var(--screw-slit);
-  box-shadow: 0 1px 0 var(--screw-slit-hl);
-}
-
-.sober-screw.top-left     { top: 7px; left: 8px; }
-.sober-screw.top-right    { top: 7px; right: 8px; }
-.sober-screw.bottom-left  { bottom: 7px; left: 8px; }
-.sober-screw.bottom-right { bottom: 7px; right: 8px; }
-
-.sober-screw.top-left::before     { transform: translate(-50%, -50%) rotate(34deg); }
-.sober-screw.top-right::before    { transform: translate(-50%, -50%) rotate(-42deg); }
-.sober-screw.bottom-left::before  { transform: translate(-50%, -50%) rotate(68deg); }
-.sober-screw.bottom-right::before { transform: translate(-50%, -50%) rotate(-18deg); }
 
 /* Cabeçalho do Painel */
 .panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 24px;
-  background: linear-gradient(180deg, var(--panel-header-bg-top) 0%, var(--panel-header-bg-bot) 100%);
-  border-bottom: 1px solid var(--panel-header-border);
-  box-shadow: inset 0 1px 0 var(--panel-header-highlight);
-  min-height: 44px;
+  padding: 10px 18px;
+  min-height: 52px;
+  background-color: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .panel-title-group {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: var(--panel-header-title);
+  gap: 10px;
+  color: var(--md-sys-color-on-surface);
 }
 
 .panel-title-group h2 {
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-shadow: var(--panel-header-shadow);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
 }
 
 .panel-controls {
@@ -1213,102 +421,100 @@ html, body {
   gap: 8px;
 }
 
-/* Dropdown em Relevo */
-.preset-dropdown {
-  font-size: 11.5px;
+/* Dropdown M3 Outlined */
+.m3-dropdown {
+  font-size: 12px;
   font-weight: 500;
-  padding: 5px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--dropdown-border);
-  border-top-color: var(--dropdown-border-top);
-  background: linear-gradient(180deg, var(--dropdown-bg-top) 0%, var(--dropdown-bg-bot) 100%);
-  color: var(--dropdown-text);
-  max-width: 250px;
+  font-family: inherit;
+  padding: 6px 12px;
+  border-radius: var(--md-sys-shape-corner-sm);
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  max-width: 260px;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 var(--chassis-highlight), 0 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.preset-dropdown:focus {
   outline: none;
-  border-color: #3b82f6;
+  transition: border-color var(--md-sys-motion-duration-short) ease;
 }
 
-/* Banner de Passos Sóbrio */
+.m3-dropdown:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+/* Banner de Etapas M3 (Assist Steps) */
 .guide-banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 20px;
-  background: var(--guide-bg);
-  border-bottom: 1px solid var(--guide-border);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
-  font-size: 11px;
-  color: var(--guide-text);
+  padding: 8px 18px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  font-size: 11.5px;
+  color: var(--md-sys-color-on-surface-variant);
   user-select: none;
 }
 
 .guide-step {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .step-num {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, var(--guide-step-bg-top) 0%, var(--guide-step-bg-bot) 100%);
-  border: 1px solid var(--guide-step-border);
-  color: var(--guide-step-text);
+  width: 18px;
+  height: 18px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 9.5px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 10px;
 }
 
 .guide-arrow {
-  color: var(--guide-arrow);
-  font-weight: bold;
+  color: var(--md-sys-color-outline);
+  font-size: 13px;
 }
 
-/* 5. Display Rebaixado: Editor de Código (Cavidade Mecânica) */
-.editor-wrapper {
+/* 6. Editor de Código (M3 Surface Well) */
+.m3-editor-well {
   flex: 1;
   display: flex;
-  background: var(--sunken-screen-bg);
+  background-color: var(--md-sys-color-surface-container-lowest);
   overflow: hidden;
   position: relative;
-  margin: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--sunken-border);
-  box-shadow: var(--sunken-shadow);
+  margin: 10px 14px;
+  border-radius: var(--md-sys-shape-corner-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .line-numbers {
   width: 44px;
-  padding: 10px 6px;
+  padding: 12px 6px;
   text-align: right;
-  font-family: "Cascadia Code", Consolas, monospace;
+  font-family: var(--md-sys-typescale-font-mono);
   font-size: 12px;
-  line-height: 19px;
-  color: var(--editor-gutter-text);
+  line-height: 20px;
+  color: var(--md-sys-color-outline);
   user-select: none;
-  border-right: 1px solid var(--editor-gutter-border);
-  background: var(--editor-gutter-bg);
+  border-right: 1px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface-container-low);
   overflow: hidden;
   white-space: pre-line;
 }
 
 .code-textarea {
   flex: 1;
-  padding: 10px 12px;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-  line-height: 19px;
+  padding: 12px 14px;
+  font-family: var(--md-sys-typescale-font-mono);
+  font-size: 12.5px;
+  line-height: 20px;
   background: transparent;
-  color: var(--editor-text);
+  color: var(--md-sys-color-on-surface);
+  caret-color: var(--md-sys-color-primary);
   border: none;
   outline: none;
   resize: none;
@@ -1318,73 +524,75 @@ html, body {
 }
 
 .code-textarea::placeholder {
-  color: var(--editor-placeholder);
+  color: var(--md-sys-color-outline);
 }
 
-/* Acordeão de Integração */
-.env-vars-accordion {
-  margin: 0 8px 6px 8px;
-  background: var(--accordion-bg);
-  border: 1px solid var(--accordion-border);
-  border-radius: 5px;
-  font-size: 11.5px;
-  box-shadow: inset 0 1px 0 var(--chassis-highlight);
+/* Acordeão M3 Outlined */
+.m3-accordion {
+  margin: 0 14px 10px 14px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-sm);
+  font-size: 12px;
+  overflow: hidden;
 }
 
-.env-vars-accordion summary {
-  padding: 6px 12px;
+.m3-accordion summary {
+  padding: 8px 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   user-select: none;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: color var(--md-sys-motion-duration-short) ease;
 }
 
-.env-vars-accordion summary:hover {
-  color: var(--text-primary);
+.m3-accordion summary:hover {
+  color: var(--md-sys-color-on-surface);
 }
 
 .env-vars-content {
-  padding: 8px 12px 10px;
-  background: var(--accordion-inner-bg);
-  border-top: 1px solid var(--accordion-inner-border);
+  padding: 10px 14px 12px;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .input-field {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
 
 .input-field label {
-  font-weight: 600;
-  font-size: 11px;
-  color: var(--text-secondary);
-}
-
-.input-field input {
-  padding: 5px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--input-field-border);
-  background: var(--input-field-bg);
-  color: var(--input-field-text);
+  font-weight: 500;
   font-size: 11.5px;
-  font-family: monospace;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
-.input-field input:focus {
+.m3-text-field {
+  padding: 7px 10px;
+  border-radius: var(--md-sys-shape-corner-sm);
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  font-size: 12px;
+  font-family: var(--md-sys-typescale-font-mono);
   outline: none;
-  border-color: #3b82f6;
+  transition: border-color var(--md-sys-motion-duration-short) ease;
+}
+
+.m3-text-field:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
 }
 
 .field-hint {
-  font-size: 10.5px;
-  color: var(--text-muted);
-  margin-top: 4px;
-  line-height: 1.3;
+  font-size: 11px;
+  color: var(--md-sys-color-outline);
+  margin-top: 5px;
+  line-height: 1.4;
 }
 
 /* Rodapé do Editor */
@@ -1392,188 +600,195 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 10px;
+  padding: 10px 14px 14px;
 }
 
-/* 6. BOTÕES FÍSICOS 3D EXTRUDADOS (Mecânica Real de Hardware - SEM GLOW) */
-.skeuo-btn {
+/* 7. BOTÕES MATERIAL DESIGN 3 (Filled, Outlined, Tonal, Extended FAB) */
+.md3-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 9px 18px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--btn-neutral-text);
+  gap: 8px;
+  padding: 0 20px;
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  text-decoration: none;
   cursor: pointer;
   user-select: none;
+  border: none;
   outline: none;
-  border-radius: 5px;
-  border: 1px solid var(--btn-neutral-border);
-  border-top-color: var(--btn-neutral-border-top);
-  background: linear-gradient(180deg, var(--btn-neutral-top) 0%, var(--btn-neutral-mid1) 48%, var(--btn-neutral-mid2) 52%, var(--btn-neutral-bot) 100%);
-  box-shadow:
-    inset 0 1px 0 var(--btn-neutral-highlight),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    0 1px 0 var(--btn-neutral-layer1),
-    0 2px 0 var(--btn-neutral-layer2),
-    0 3px 0 var(--btn-neutral-layer3),
-    0 4px 0 var(--btn-neutral-layer4),
-    0 5px 0 var(--btn-neutral-layer5),
-    0 6px 6px var(--btn-neutral-shadow);
-  text-shadow: var(--btn-neutral-text-shadow);
-  transform: translateY(0);
-  transition: all 0.06s cubic-bezier(0.2, 0.8, 0.3, 1);
+  overflow: hidden;
+  transition:
+    background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
+    opacity var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
 }
 
-.skeuo-btn:hover {
-  filter: brightness(1.05);
+/* Camada de Estado (State Layer Overlay) */
+.md3-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short) ease;
+  pointer-events: none;
 }
 
-/* Curso Mecânico de 4px na Compressão */
-.skeuo-btn:active {
-  transform: translateY(4px);
-  box-shadow:
-    inset 0 2px 4px var(--btn-pressed-inset),
-    0 1px 0 var(--btn-pressed-layer),
-    0 2px 3px var(--btn-pressed-shadow);
+.md3-btn:hover::after {
+  opacity: 0.08;
 }
 
-.skeuo-btn:disabled {
-  opacity: 0.5;
+.md3-btn:active::after {
+  opacity: 0.14;
+}
+
+.md3-btn:disabled {
+  opacity: 0.38;
   cursor: not-allowed;
-  transform: none;
-  filter: grayscale(0.5);
+  box-shadow: none !important;
 }
 
-/* Botão Primário: Azul Marinho Corporativo Fosco */
-.skeuo-btn.primary {
-  background: linear-gradient(180deg, var(--btn-primary-top) 0%, var(--btn-primary-mid1) 48%, var(--btn-primary-mid2) 52%, var(--btn-primary-bot) 100%);
-  border-color: var(--btn-primary-border);
-  border-top-color: var(--btn-primary-border-top);
-  box-shadow:
-    inset 0 1px 0 var(--btn-primary-highlight),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 1px 0 var(--btn-primary-layer1),
-    0 2px 0 var(--btn-primary-layer2),
-    0 3px 0 var(--btn-primary-layer3),
-    0 4px 0 var(--btn-primary-layer4),
-    0 5px 0 var(--btn-primary-layer5),
-    0 6px 6px var(--btn-primary-shadow);
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+.md3-btn:disabled::after {
+  display: none;
 }
 
-.skeuo-btn.primary:active {
-  transform: translateY(4px);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.8),
-    0 1px 0 var(--btn-primary-layer5),
-    0 2px 3px rgba(0, 0, 0, 0.5);
+/* M3 Filled Button (Ação Primária: Gerar Planilha Executiva) */
+.md3-btn-filled.primary {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-weight: 600;
 }
 
-/* Botão de Sucesso: Verde Floresta Contábil Clássico (Abrir no Excel) */
-.skeuo-btn.success {
-  background: linear-gradient(180deg, var(--btn-success-top) 0%, var(--btn-success-mid1) 48%, var(--btn-success-mid2) 52%, var(--btn-success-bot) 100%);
-  border-color: var(--btn-success-border);
-  border-top-color: var(--btn-success-border-top);
-  box-shadow:
-    inset 0 1px 0 var(--btn-success-highlight),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 1px 0 var(--btn-success-layer1),
-    0 2px 0 var(--btn-success-layer2),
-    0 3px 0 var(--btn-success-layer3),
-    0 4px 0 var(--btn-success-layer4),
-    0 5px 0 var(--btn-success-layer5),
-    0 6px 6px var(--btn-success-shadow);
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+.md3-btn-filled.primary:hover:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
-.skeuo-btn.success:active {
-  transform: translateY(4px);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.8),
-    0 1px 0 var(--btn-success-layer5),
-    0 2px 3px rgba(0, 0, 0, 0.5);
+/* M3 Outlined Button (Ações Secundárias: Colar, Limpar, Salvar Como...) */
+.md3-btn-outlined {
+  background-color: transparent;
+  border: 1px solid var(--md-sys-color-outline);
+  color: var(--md-sys-color-primary);
+  padding: 0 16px;
+  height: 36px;
 }
 
-/* Botões Pequenos de Apoio */
-.skeuo-btn.sm {
-  padding: 5px 12px;
-  font-size: 11px;
-  box-shadow:
-    inset 0 1px 0 var(--btn-neutral-highlight),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    0 1px 0 var(--btn-neutral-layer1),
-    0 2px 0 var(--btn-neutral-layer2),
-    0 3px 0 var(--btn-neutral-layer3),
-    0 4px 4px var(--btn-neutral-shadow);
+.md3-btn-outlined:hover:not(:disabled) {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.06);
 }
 
-.skeuo-btn.sm:active {
-  transform: translateY(2px);
-  box-shadow:
-    inset 0 1px 3px var(--btn-pressed-inset),
-    0 1px 0 var(--btn-pressed-layer);
+/* M3 Tonal Button */
+.md3-btn-tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  height: 36px;
+  padding: 0 16px;
 }
 
-/* 7. Painel Direito: Abas e Livro-Razão Contábil */
+.md3-btn-tonal:hover:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+/* M3 Extended FAB / Destaque Secundário (Abrir no Microsoft Excel) */
+.md3-fab-extended {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  font-weight: 600;
+  height: 40px;
+  padding: 0 20px;
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.md3-fab-extended:hover:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* Tamanhos Utilitários */
+.md3-btn.sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 11.5px;
+}
+
+.md3-btn.icon-only {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+/* 8. Painel Direito: Abas Primárias M3 */
 .tabs-header {
   padding: 0 14px;
-  min-height: 42px;
+  min-height: 48px;
 }
 
-.tab-buttons {
+.m3-tabs {
   display: flex;
   gap: 4px;
 }
 
 .tab-btn {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 14px;
+  gap: 8px;
+  padding: 12px 18px;
   background: transparent;
   border: none;
-  color: var(--tab-btn-text);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.08s ease;
+  transition: color var(--md-sys-motion-duration-short) ease;
 }
 
 .tab-btn:hover {
-  color: var(--text-primary);
+  color: var(--md-sys-color-on-surface);
 }
 
 .tab-btn.active {
-  color: var(--tab-btn-active-text);
-  border-bottom-color: var(--tab-btn-active-line);
-  text-shadow: var(--panel-header-shadow);
+  color: var(--md-sys-color-primary);
+  font-weight: 600;
 }
 
-.count-pill {
-  background: var(--count-pill-bg);
-  border: 1px solid var(--count-pill-border);
-  color: var(--count-pill-text);
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 700;
+/* Indicador de Aba Ativa M3 */
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background-color: var(--md-sys-color-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+.m3-count-pill {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  padding: 1px 7px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: 10.5px;
+  font-weight: 600;
 }
 
 .terminal-pulse {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #d69e2e;
+  background-color: var(--md-sys-color-tertiary);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .tab-content {
@@ -1581,257 +796,268 @@ html, body {
   display: none;
   flex-direction: column;
   overflow: hidden;
-  margin: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--panel-border);
+  margin: 10px 14px;
+  border-radius: var(--md-sys-shape-corner-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .tab-content.active {
   display: flex;
 }
 
-/* Barra de Metadados em Lombada de Couro */
+/* 9. Barra de Metadados da Planilha M3 */
 .sheet-meta-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, var(--leather-spine-top) 0%, var(--leather-spine-mid) 45%, var(--leather-spine-bot) 100%);
-  background-size: 4px 4px, 100% 100%;
-  border-bottom: 2px solid var(--leather-border);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.35);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
-.file-name {
-  font-family: "Georgia", serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--gold-text-grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.7));
-}
-
-.badge {
-  padding: 2px 6px;
-  background: var(--badge-bg);
-  color: var(--badge-text);
-  border-radius: 3px;
-  font-size: 10.5px;
-  border: 1px solid var(--badge-border);
-}
-
-.sheet-tab-chip {
-  padding: 2px 7px;
-  border-radius: 3px;
-  border: 1px solid var(--tab-chip-border);
-  background: var(--tab-chip-bg);
-  color: var(--tab-chip-text);
-  cursor: pointer;
-  font-size: 11px;
-}
-
-.sheet-tab-chip.active {
-  background: var(--tab-chip-active-bg);
-  color: var(--tab-chip-active-text);
-  border-color: var(--tab-chip-active-border);
-}
-
-.filter-input {
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--filter-border);
-  background: var(--filter-bg);
-  color: var(--filter-text);
-  font-size: 11.5px;
-  width: 170px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* 8. Folha Contábil em Livro-Razão (Eye-Ease Marfim / Pautas Clássicas) */
-.table-wrapper {
-  flex: 1;
-  overflow: auto;
-  max-inline-size: 100%;
-  max-block-size: 100%;
-  background: var(--ledger-paper-bg);
-  box-shadow: inset 0 6px 12px -2px rgba(0, 0, 0, 0.25);
-  position: relative;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  inline-size: 100%;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 11.5px;
-  color: var(--ledger-text);
-}
-
-thead {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 2;
-}
-
-th {
-  background: var(--th-bg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--th-text);
-  font-weight: 700;
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-align: left;
-  padding: 7px 10px;
-  border-bottom: 2px solid var(--th-border-bottom);
-  border-top: 1px solid var(--th-border-top);
-  white-space: nowrap;
-}
-
-td {
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--ledger-rule-blue);
-  color: var(--ledger-text);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Divisória Dupla Vermelha Clássica na Primeira Coluna (Descrição) */
-td:first-child, th:first-child {
-  border-right: 3px double var(--ledger-rule-red);
-}
-
-tbody tr:hover td {
-  background-color: var(--table-hover-bg);
-}
-
-/* Linha de Totalização Contábil (Traço Duplo de Balanço) */
-tr.rule-double-total td {
-  font-weight: 700;
-  border-top: 1px solid var(--ledger-text);
-  border-bottom: 3px double var(--ledger-text);
-  background: var(--table-total-bg);
-}
-
-/* Estado Vazio */
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 30px;
-  text-align: center;
-  color: var(--empty-text);
-  background: var(--ledger-paper-bg);
-}
-
-.empty-icon {
-  margin-bottom: 12px;
-  opacity: 0.5;
-}
-
-.empty-state h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.empty-state p {
-  font-size: 12px;
-  max-width: 380px;
-  line-height: 1.4;
-  margin-bottom: 14px;
-  color: var(--text-secondary);
-}
-
-/* Diário de Bordo (Display Rebaixado Sóbrio) */
-.terminal-wrapper {
-  flex: 1;
-  background: var(--terminal-bg);
-  padding: 12px;
-  overflow: auto;
-  font-family: "Cascadia Code", Consolas, monospace;
-  box-shadow: inset 0 8px 16px -2px rgba(0, 0, 0, 0.7);
-}
-
-.terminal-output {
-  font-size: 11.5px;
-  line-height: 1.5;
-  color: var(--terminal-text);
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.term-line-err {
-  color: var(--terminal-err);
-  font-weight: 600;
-}
-
-.term-line-succ {
-  color: var(--terminal-succ);
-  font-weight: 600;
-}
-
-.term-line-info {
-  color: var(--terminal-info);
-}
-
-/* Barra Inferior de Ações */
-.panel-bottom-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 24px;
-  background: linear-gradient(180deg, var(--panel-bottom-bg-top) 0%, var(--panel-bottom-bg-bot) 100%);
-  border-top: 1px solid var(--panel-bottom-border);
-  min-height: 52px;
-}
-
-.file-path-hint {
-  font-size: 11.5px;
-  color: var(--text-secondary);
-  font-family: monospace;
-}
-
-.bottom-right {
+.meta-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Toast */
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 9px 16px;
-  background: var(--toast-bg);
-  color: var(--toast-text);
-  border: 1px solid var(--toast-border);
-  border-radius: 5px;
-  box-shadow: 0 4px 14px var(--toast-shadow);
-  font-size: 12px;
+.file-name {
+  font-size: 13px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 1000;
+  color: var(--md-sys-color-on-surface);
 }
 
-.status-badge {
+.m3-badge-tonal {
+  padding: 2px 7px;
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: var(--md-sys-shape-corner-xs);
   font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: var(--status-badge-bg);
-  color: var(--status-badge-text);
-  border: 1px solid var(--status-badge-border);
+  font-weight: 500;
+}
+
+.sheet-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* M3 Filter Chips para Abas de Planilhas */
+.md3-filter-chip {
+  padding: 4px 10px;
+  border-radius: var(--md-sys-shape-corner-sm);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 500;
+  transition: all var(--md-sys-motion-duration-short) ease;
+}
+
+.md3-filter-chip:hover {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.05);
+  color: var(--md-sys-color-on-surface);
+}
+
+.md3-filter-chip.active {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.m3-filter-input {
+  padding: 5px 12px;
+  border-radius: var(--md-sys-shape-corner-full);
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  font-size: 12px;
+  width: 190px;
+  outline: none;
+  transition: border-color var(--md-sys-motion-duration-short) ease;
+}
+
+.m3-filter-input:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+/* 10. Grade de Dados Corporativa M3 (Enterprise Data Grid) */
+.m3-data-grid-container {
+  flex: 1;
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  position: relative;
+}
+
+.m3-data-grid {
+  border-collapse: collapse;
+  border-spacing: 0;
+  inline-size: 100%;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3-data-grid thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+}
+
+.m3-data-grid th {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--md-sys-color-outline-variant);
+  white-space: nowrap;
+}
+
+.m3-data-grid td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.m3-data-grid tbody tr:hover td {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.05);
+}
+
+/* Linha de Totalização Contábil M3 */
+.m3-data-grid tr.rule-double-total td {
+  font-weight: 700;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-bottom: 2px solid var(--md-sys-color-primary);
+}
+
+/* Estado Vazio M3 */
+.m3-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 36px;
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-color-surface-container-lowest);
+}
+
+.m3-empty-state .empty-icon {
+  margin-bottom: 14px;
+  color: var(--md-sys-color-outline);
+}
+
+.m3-empty-state h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 6px;
+}
+
+.m3-empty-state p {
+  font-size: 12.5px;
+  max-width: 400px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* 11. Terminal Diário de Bordo M3 */
+.m3-terminal-well {
+  flex: 1;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  padding: 14px;
+  overflow: auto;
+  font-family: var(--md-sys-typescale-font-mono);
+}
+
+.terminal-output {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.term-line-err {
+  color: var(--md-sys-color-error);
+  font-weight: 600;
+}
+
+.term-line-succ {
+  color: var(--md-sys-color-secondary);
+  font-weight: 600;
+}
+
+.term-line-info {
+  color: var(--md-sys-color-primary);
+}
+
+/* 12. Barra Inferior de Ações M3 */
+.panel-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  min-height: 54px;
+}
+
+.file-path-hint {
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--md-sys-typescale-font-mono);
+}
+
+.bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 13. Snackbar M3 (Toast) */
+.m3-snackbar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 20px;
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  border-radius: var(--md-sys-shape-corner-sm);
+  box-shadow: var(--md-sys-elevation-level3);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.m3-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .hidden {
